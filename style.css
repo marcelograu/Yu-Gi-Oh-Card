@@ -20,34 +20,72 @@ body {
 }
 
 .card{
-    height: 600px;
-    width: 400px;
-    background-color: grey;
-    padding: 15px;
+    height: 500px;
+    width: 350px;
+    background-color: rgb(60, 59, 59);
+    padding: 10px;
     border-radius: 5px;
+    border: 1px solid gainsboro;
+    position: relative;
+    overflow: hidden;
+    
+}
+.card::before{
+    content: "";
+    width:100%;
+    height: 100%;
+    background-image: url("/assets/textura-metal.png");
+   top: 0;
+   left: 0;
+    position: absolute;
+    z-index: 1;
+    filter: opacity(60%);
+    
+
 }
 .content{
     height: 100%;
     width: 100%;
     background-color: #c09950;
     border-radius: 2px;
-    box-shadow: 0 0 10px 5px rgba(0, 0, 0, 0.4);
+    box-shadow: 0 0 4px 4px rgba(0, 0, 0, 0.8);
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: flex-start;
     transition: cubic-bezier(0.075, 0.82, 0.165, 1);
+    position: relative;
+    z-index: 3;
+    border: #fae0ae  1px solid;
+
+}
+.content::before{
+    content: "";
+    width: 100%;
+    height: 100%;
+    border: 2px solid;
+    background-image: url("/assets/paper-texture.jpg");
+    filter: blur(2px)  opacity(50%);
+    position: absolute;
+    z-index: -1;
 }
 
 header{
     margin-top: 20px;
-    height: 45px;
+    height:70px;
     width: 90%;
-    border: 2px solid black;
+    border-width: 7px;
+    border-style: outset  ;
     display: flex;
     align-items: center;
     justify-content: space-around;
+    box-shadow: rgba(12, 7, 2, 0.361) 2px 3px 5px 2px;
+    border-top-color: 20px rgba(254, 236, 193, 0.44) ;
+    border-left-color: rgba(248, 243, 230, 0.44);
+    border-right-color: rgba(244, 214, 145, 0.44);
+    border-bottom-color: rgba(48, 39, 16, 0.44);
 }
+
 h2{
     color: #fff9f0;
 }
@@ -62,9 +100,9 @@ h2 span {
     border-radius: 50%;
 }
 figure {
-    margin-top: 20px;
-    height: 50%;
-    width: 80%;
+    margin-top: 5px;
+    height: 55%;
+    width: 83%;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -79,8 +117,6 @@ figure {
     justify-content: center;
     position: relative;
     overflow: hidden;
-    position: relative;
-   
 }
 
 
@@ -89,7 +125,7 @@ figure {
     
 }
 .character-background{
-
+    
 }
 .circle{
     height: 100%;
@@ -128,11 +164,46 @@ figure {
   
 }
 
-.text-container{
-    width: 100%;
-    height: 100%;
+.description-container{
+    margin-top: 10px;
+    border:  1px solid black;
+    width: 88%;
+    height: 90px;
+    padding: 5px;
+    font-size: 0.75rem;
+    display: flex;
+    flex-direction: column; justify-content: space-between;
 }
 
-.description-container{
-    border:  1px solid black;
+
+
+.star-container {
+    height: auto;
+    width: 80%;
+    display: flex;
+    justify-content: flex-end;
+    margin-top:  5px;
+
 }
+.star{
+    height: 1.5rem; 
+    width: 1.5rem;
+    border-radius: 50%;
+    background-color: rgb(141, 33, 33);
+    margin-left: 5px;
+}
+
+.points-container{
+    display:  flex;
+    justify-content: flex-end;
+    font-size: 0.8rem;
+    font-weight:  bolder;
+    border-top: 1px solid black;
+}
+
+.points-container div {
+    margin-right: 10px;
+
+}
+
+
