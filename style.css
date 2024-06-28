@@ -54,10 +54,7 @@ body {
     top: 0;
     transform: rotateY(180deg);
 }
-.card-container:hover .card-inner{
-    transform: rotateY(180deg);
-    
-}
+
 .card::before {
     content: "";
     width: 100%;
@@ -245,4 +242,8 @@ figure {
     bottom: 0;
     left: 0;
 }
+
+
+
+/*  Efeitos adicionados com JavaScript */
 
