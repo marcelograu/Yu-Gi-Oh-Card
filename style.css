@@ -1,4 +1,4 @@
-*{
+* {
     padding: 0;
     margin: 0;
     box-sizing: border-box;
@@ -18,32 +18,58 @@ body {
     justify-content: center;
     background-color: black;
 }
-
-.card{
+.card-container {
     height: 500px;
     width: 350px;
+    position: relative;
+    background-color: transparent;
+    perspective: 1000px;
+}
+.card-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    transition: transform 700ms ease-in-out;
+    transform-style: preserve-3d;
+}
+.card {
+    height: 100%;
+    width: 100%;
     background-color: rgb(60, 59, 59);
     padding: 10px;
     border-radius: 5px;
     border: 1px solid gainsboro;
-    position: relative;
+    position: absolute;
     overflow: hidden;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+}
+.back-card {
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    background-color: rgb(255, 255, 255);
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    top: 0;
+    transform: rotateY(180deg);
+}
+.card-container:hover .card-inner{
+    transform: rotateY(180deg);
     
 }
-.card::before{
+.card::before {
     content: "";
-    width:100%;
+    width: 100%;
     height: 100%;
     background-image: url("/assets/textura-metal.png");
-   top: 0;
-   left: 0;
+    top: 0;
+    left: 0;
     position: absolute;
     z-index: 1;
     filter: opacity(60%);
-    
-
 }
-.content{
+.content {
     height: 100%;
     width: 100%;
     background-color: #c09950;
@@ -57,9 +83,8 @@ body {
     position: relative;
     z-index: 3;
     border: #fae0ae  1px solid;
-
 }
-.content::before{
+.content::before {
     content: "";
     width: 100%;
     height: 100%;
@@ -70,32 +95,32 @@ body {
     z-index: -1;
 }
 
-header{
+header {
     margin-top: 20px;
-    height:70px;
+    height: 70px;
     width: 90%;
     border-width: 7px;
-    border-style: outset  ;
+    border-style: outset;
     display: flex;
     align-items: center;
     justify-content: space-around;
     box-shadow: rgba(12, 7, 2, 0.361) 2px 3px 5px 2px;
-    border-top-color: 20px rgba(254, 236, 193, 0.44) ;
+    border-top-color: rgba(254, 236, 193, 0.44);
     border-left-color: rgba(248, 243, 230, 0.44);
     border-right-color: rgba(244, 214, 145, 0.44);
     border-bottom-color: rgba(48, 39, 16, 0.44);
 }
 
-h2{
+h2 {
     color: #fff9f0;
 }
 
 h2 span {
     font-size: 2rem;
 }
-.element{
-    width: 35px ;
-    height: 35px ;
+.element {
+    width: 35px;
+    height: 35px;
     background-color: rgb(85, 25, 145);
     border-radius: 50%;
 }
@@ -106,10 +131,14 @@ figure {
     display: flex;
     align-items: center;
     justify-content: center;
-    border: 1px solid;
-    border: 1px solid rgb(0, 0, 0);
+    border-style: outset;
+    border: 0.3rem solid rgb(53, 52, 71);
+    border-radius: 3px;
+    box-shadow: 0px 0px 4px 3px rgba(1, 1, 21, 0.524);
+    border-top-color: rgb(87, 86, 106);
+    border-left-color: rgb(87, 86, 106);
 }
-.bg-figure{
+.bg-figure {
     height: 100%;
     width: 100%;
     display: flex;
@@ -118,16 +147,11 @@ figure {
     position: relative;
     overflow: hidden;
 }
-
-
-.star-container{
-
-    
+.star-container {
 }
-.character-background{
-    
+.character-background {
 }
-.circle{
+.circle {
     height: 100%;
     width: 100%;
     display: flex;
@@ -137,15 +161,10 @@ figure {
     position: absolute;
     z-index: 2;
     top: 0;
-   
-
 }
-
-
 .circle img {
     height: auto;
-    width:97%;
-  
+    width: 97%;
 }
 .character {
     height: 100%;
@@ -153,57 +172,77 @@ figure {
     position: absolute;
     top: 0;
     transform: translateY(-10%);
-    z-index: 3 ;
-   
+    z-index: 3;
 }
-
-
-.character img{
+.character img {
     width: auto;
     height: 125%;
-  
 }
-
-.description-container{
-    margin-top: 10px;
-    border:  1px solid black;
+.description-container {
+    margin: 10px 10px;
     width: 88%;
     height: 90px;
     padding: 5px;
     font-size: 0.75rem;
     display: flex;
-    flex-direction: column; justify-content: space-between;
+    flex-direction: column;
+    justify-content: space-between;
+    background-color: #faeda06d;
+    border-radius: 2px;
+    border: 4px solid rgb(42, 1, 1);
+    border-top-color: rgb(57, 23, 23);
+    border-left-color: rgb(105, 41, 41);
+    border-bottom-color: rgb(146, 51, 51);
+    border-style: outset ridge;
+    position: relative;
+    overflow: hidden;
+    box-shadow: inset 0px 0px 3px 2px rgba(0, 0, 0, 0.692);
 }
-
-
-
 .star-container {
     height: auto;
     width: 80%;
     display: flex;
     justify-content: flex-end;
-    margin-top:  5px;
-
+    margin-top: 5px;
 }
-.star{
-    height: 1.5rem; 
+.star {
+    height: 1.5rem;
     width: 1.5rem;
     border-radius: 50%;
     background-color: rgb(141, 33, 33);
     margin-left: 5px;
 }
-
-.points-container{
-    display:  flex;
+.points-container {
+    display: flex;
     justify-content: flex-end;
     font-size: 0.8rem;
-    font-weight:  bolder;
-    border-top: 1px solid black;
+    font-weight: bolder;
+    border-top: 1px solid rgb(49, 12, 12);
 }
-
 .points-container div {
     margin-right: 10px;
-
 }
-
+.square {
+    width: 5px;
+    height: 5px;
+    position: absolute;
+    background-color: rgb(73, 11, 11);
+    box-shadow: 2px 2px 2px black;
+}
+.s1 {
+    top: 0;
+    left: 0;
+}
+.s2 {
+    top: 0;
+    right: 0;
+}
+.s3 {
+    bottom: 0;
+    right: 0;
+}
+.s4 {
+    bottom: 0;
+    left: 0;
+}
 
