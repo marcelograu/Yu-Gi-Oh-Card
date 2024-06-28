@@ -19,8 +19,8 @@ body {
     background-color: black;
 }
 .card-container {
-    height: 500px;
-    width: 350px;
+    height: 50px;
+    width: 35px;
     position: relative;
     background-color: transparent;
     perspective: 1000px;
